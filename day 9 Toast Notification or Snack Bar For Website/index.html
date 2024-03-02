@@ -8,9 +8,20 @@
   </head>
   <body>
     <div class="buttons">
-      <button>success</button>
-      <button>Error</button>
-      <button>Invalid</button>
+      <button onclick="showToast()">success</button>
+      <button onclick="showToast()">Error</button>
+      <button onclick="showToast()">Invalid</button>
     </div>
+    <div class="toastBox"></div>
+
+    <script>
+      let toastBox = document.getElementById("toastBox");
+      function showToast() {
+        let toast = document.createElement("div");
+        toast.classList.add("toast");
+        toast.innerHTML = "success";
+        toastBox.appendChild(toast);
+      }
+    </script>
   </body>
 </html>
