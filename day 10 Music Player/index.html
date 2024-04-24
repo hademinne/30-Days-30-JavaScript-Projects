@@ -25,7 +25,7 @@
         <h1>Garsi</h1>
         <p>Melodic Techno & Indie Dance DJ Mix</p>
 
-        <audio controls id="song">
+        <audio id="song">
           <source src="garsi.mp3.m4a" type="audio/mpeg" />
         </audio>
         <input type="range" value="0" id="progress" />
@@ -66,6 +66,12 @@
           progress.value = song.currentTime;
         }, 500);
       }
+      progress.onchange = function () {
+        song.play();
+        song.currentTime = progress.value;
+        ctrlIcon.classList.add("fa-pause");
+        ctrlIcon.classList.remove("fa-play");
+      };
     </script>
   </body>
 </html>
