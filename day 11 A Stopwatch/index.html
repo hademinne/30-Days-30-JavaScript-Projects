@@ -2,33 +2,53 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Design Stopwatch using HTML CSS and JavaScript</title>
+    <title>Stopwatch</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <div class="container">
-      <img class="img" src="images/background.png" />
-      <div class="centered">
-        <div id="time">
-          <span class="digit" id="hr"> 00</span>
-          <span class="txt">:</span>
-          <span class="digit" id="min"> 00</span>
-          <span class="txt">:</span>
-          <span class="digit" id="sec"> 00</span>
-          <span class="txt">:</span>
-          <span class="digit" id="count"> 00</span>
-        </div>
-        <div id="buttons">
-          <button class="btn" id="start"><img src="images/stop.png" />></button>
-          <button class="btn" id="stop"><img src="images/start.png" /></button>
-          <button class="btn" id="reset"><img src="images/reset.png" /></button>
-        </div>
+    <div class="Stopwatch">
+      <h1 id="displayTime">00:00:00</h1>
+
+      <div class="buttons">
+        <img src="images/stop.png" onclick="watchStop()" />
+        <img src="images/start.png" onclick="startStopwatch()" />
+        <img src="images/reset.png" onclick="watchReset()" />
       </div>
     </div>
+    <script>
+      let [seconds, minutes, hours] = [0, 0, 0];
+      let displayTime = document.getElementById("displayTime");
+      let timer = null;
 
-    <script src="script.js"></script>
+      function updateTimeDisplay() {
+        seconds++;
+        if (seconds == 60) {
+          seconds = 0;
+          minutes++;
+          if (minutes == 60) {
+            minutes = 0;
+            hours++;
+          }
+        }
+        displayTime.innerHTML = hours + ":" + minutes + ":" + seconds;
+      }
+
+      function startStopwatch() {
+        if (timer !== null) {
+          clearInterval(timer);
+        }
+        timer = setInterval(updateTimeDisplay, 1000);
+      }
+
+      function watchStop() {
+        clearInterval(timer);
+      }
+      function watchReset() {
+        clearInterval(timer);
+        [seconds, minutes, hours] = [0, 0, 0];
+        displayTime.innerHTML = "00:00:00";
+      }
+    </script>
   </body>
 </html>
