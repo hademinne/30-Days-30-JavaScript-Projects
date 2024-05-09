@@ -22,3 +22,36 @@
   /* font-weight: 500px; */
   border-radius: 30px;
 }
+.popup {
+  width: 400px;
+  background: #fff;
+  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  padding: 0 30px 30px;
+  visibility: hidden;
+}
+.popup img {
+  width: 50px;
+  margin-top: -50px;
+  border-radius: 50%;
+}
+.popup button {
+  width: 100%;
+  margin-top: 30px;
+  padding: 10px 0;
+  background: #ff5945;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.popup p {
+  font-size: 15px;
+  padding-top: 10px;
+}
