@@ -16,7 +16,7 @@
       const passwordField = document.getElementById("password");
       const toggleIcon = document.getElementById("toggle-icon");
 
-      toggleIcon.onclick = function () {
+      toggleIcon.addEventListener("click", function () {
         if (passwordField.type == "password") {
           passwordField.type = "text";
           toggleIcon.src = "eye-open.png";
@@ -24,7 +24,7 @@
           passwordField.type = "password";
           toggleIcon.src = "eye-close.png";
         }
-      };
+      });
     </script>
   </body>
 </html>
