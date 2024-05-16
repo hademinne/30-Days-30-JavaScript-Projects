@@ -9,8 +9,22 @@
   </head>
   <body>
     <div class="container">
-      <input type="password" placeholder="password" />
-      <img src="eye-close.png" alt="" />
+      <input type="password" placeholder="password" id="password" />
+      <img src="eye-close.png" id="toggle-icon" />
     </div>
+    <script>
+      const passwordField = document.getElementById("password");
+      const toggleIcon = document.getElementById("toggle-icon");
+
+      toggleIcon.onclick = function () {
+        if (passwordField.type == "password") {
+          passwordField.type = "text";
+          toggleIcon.src = "eye-open.png";
+        } else {
+          passwordField.type = "password";
+          toggleIcon.src = "eye-close.png";
+        }
+      };
+    </script>
   </body>
 </html>
