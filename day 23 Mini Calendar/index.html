@@ -50,7 +50,7 @@
 
       // Create a new Date object
       const today = new Date();
-      date.innerHTML = today.getDate();
+      date.innerHTML = (today.getDate() > 10 ? "0" : "") + today.getDate();
       day.innerHTML = days[today.getDay()];
       month.innerHTML = monthNames[today.getMonth()];
       year.innerHTML = today.getFullYear();
